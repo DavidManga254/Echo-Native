@@ -5,7 +5,7 @@ export function AppNavigation() {
 
     return (
         <Stack.Navigator>
-            <Stack.Screen name="splash" component={Splashscreen} />
+            <Stack.Screen name="splash" component={Splashscreen} options={{ headerShown: false }} />
         </Stack.Navigator>
     );
 }
