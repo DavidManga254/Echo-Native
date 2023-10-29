@@ -1,11 +1,10 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
-import Cookies from 'js-cookie';
+import Constants from 'expo-constants';
 
 const apiInstance = axios.create({
-    baseURL: import.meta.env.VITE_API_BASE_URL,
+    baseURL: '',
     withCredentials: true,
     headers: {
-        Authorization: `Bearer ${Cookies.get(import.meta.env.VITE_API_KEY_NAME)}`,
         Accept: 'application/json',
         'Content-Type': 'application/json',
     },
