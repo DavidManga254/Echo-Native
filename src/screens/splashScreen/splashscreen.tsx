@@ -1,7 +1,21 @@
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useEffect } from 'react';
+import { checkLoginStatus } from './splashScreenViewModel';
+import { appConstants } from '../../constants/constants';
 
 export function Splashscreen() {
+    useEffect(() => {
+        (async () => {
+            console.log('sending request');
+            checkLoginStatus().then((response) => {
+                if (response.code === appConstants.unauthorised) {
+                    console.log('here is response', response);
+                    console.log('unauthorised');
+                }
+            });
+        })();
+    }, []);
     return (
         <SafeAreaView>
             <View style={styles.container}>
