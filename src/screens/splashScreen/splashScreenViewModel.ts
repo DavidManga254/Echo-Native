@@ -1,3 +1,4 @@
+import axios, { Axios } from 'axios';
 import { useApiManager } from '../../API/apiManager';
 
 interface SplashPageResponseInterface {
@@ -8,7 +9,11 @@ export async function checkLoginStatus(): Promise<SplashPageResponseInterface> {
 
     const response = await checkAuth();
 
-    console.log('ndo hili hapa', response);
+    if (axios.isAxiosError(response)) {
+        return {
+            code: 403,
+        };
+    }
 
     return {
         code: response.status,

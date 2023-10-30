@@ -1,5 +1,6 @@
 export const appConstants = {
-    apiBaseUrl: 'http://127.0.0.1:8000',
+    apiBaseUrl: 'https://echo-server-kohl.vercel.app/api/api/',
     unauthorised: 403,
+    authorised: 200,
     APP_JWT: 'APP_JWT',
 };

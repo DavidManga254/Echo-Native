@@ -4,14 +4,14 @@ import { useEffect } from 'react';
 import { checkLoginStatus } from './splashScreenViewModel';
 import { appConstants } from '../../constants/constants';
 
-export function Splashscreen() {
+export function Splashscreen(props: { navigation: any }) {
     useEffect(() => {
         (async () => {
             console.log('sending request');
             checkLoginStatus().then((response) => {
                 if (response.code === appConstants.unauthorised) {
-                    console.log('here is response', response);
-                    console.log('unauthorised');
+                    props.navigation.push('loginScreen');
+                } else if (response.code === appConstants.authorised) {
                 }
             });
         })();
